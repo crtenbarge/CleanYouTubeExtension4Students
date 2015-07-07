@@ -1,0 +1,36 @@
+{
+  "manifest_version": 2,
+
+  "name": "Cleaner Chrome for for Students",
+  "description": "This extension strips away the suggested video sidebar and a few advertisements.",
+  "version": "3.1",
+
+	"content_scripts": [
+		{
+		  "matches": ["https://www.youtube.com/"], 
+		  "css" : ["style.css"]
+		},
+		{
+		  "matches": ["https://www.youtube.com/watch*"], 
+		  "css" : ["style2.css"]
+		},
+		{
+		  "matches": ["https://www.youtube.com/user/vevo*"], 
+		  "css" : ["styleOFF.css"]
+		},
+		{
+		  "matches": ["http://www.youtube.com/*"], 
+		  "css" : ["style.css"]
+		}
+	],
+  "permissions": ["webRequest", "webRequestBlocking", "http://*/*", "https://*/*"],
+  "browser_action": {
+    "default_icon": "icon.png"
+  },
+      "background": {
+        "scripts": [
+            "javascript.js"
+        ]
+    }
+
+}
